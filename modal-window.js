@@ -41,7 +41,7 @@ var focusableElementsString = "a[href], area[href], input:not([disabled]), selec
 var focusedElementBeforeModal;
 
 $(document).ready(function() {
-    jQuery('#startModal').click(function(e) {
+    jQuery('.startModal').click(function(e) {
         showModal($('#modal'));
     });
     jQuery('#cancel').click(function(e) {
@@ -57,6 +57,9 @@ $(document).ready(function() {
         hideModal();
     });
     jQuery('#modalCloseButton').keydown(function(event) {
+        console.log('jon');
+    })
+    jQuery('#modalCloseButton').keydown(function(event) {
         trapSpaceKey($(this), event, hideModal);
     })
     jQuery('#modal').keydown(function(event) {
@@ -65,6 +68,7 @@ $(document).ready(function() {
     jQuery('#modal').keydown(function(event) {
         trapEscapeKey($(this), event);
     })
+
 
 });
 
@@ -98,6 +102,7 @@ function trapEscapeKey(obj, evt) {
 }
 
 function trapTabKey(obj, evt) {
+
 
     // if tab or shift-tab pressed
     if (evt.which == 9) {
@@ -166,6 +171,7 @@ function showModal(obj) {
 
     // save current focus
     focusedElementBeforeModal = jQuery(':focus');
+    console.log(focusedElementBeforeModal);
 
     // get list of all children elements in given object
     var o = obj.find('*');
@@ -175,6 +181,8 @@ function showModal(obj) {
 
     // set the focus to the first keyboard focusable item
     o.filter(focusableElementsString).filter(':visible').first().focus();
+
+    console.log(document.activeElement);
 
 
 }
