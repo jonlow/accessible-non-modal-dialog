@@ -1,4 +1,4 @@
-accessible-modal-dialog
+accessible-non-modal-dialog
 =======================
 
-An demonstration of how to code a modal dialog/window so that it is accessible to people with disabilities.
+An demonstration of how to code a non-modal dialog/window so that it is accessible to people with disabilities.
